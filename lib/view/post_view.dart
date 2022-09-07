@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:lesson_getx/model/post_model.dart';
+import 'package:get/get.dart';
+import 'package:lesson_getx/page/home/home_controller.dart';
 
 class PostView extends StatelessWidget {
   const PostView({
@@ -12,13 +14,28 @@ class PostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var homeController = Get.find<HomeController>();
     return Slidable(
+      startActionPane: ActionPane(
+        extentRatio: 0.25,
+        motion: const ScrollMotion(),
+        children: [
+          SlidableAction(
+            onPressed: (BuildContext context) => homeController.editPost(post),
+            flex: 3,
+            backgroundColor: const Color(0xFFFE4A49),
+            foregroundColor: Colors.white,
+            icon: Icons.edit,
+            label: 'Edit',
+          ),
+        ],
+      ),
       endActionPane: ActionPane(
         extentRatio: 0.25,
         motion: const ScrollMotion(),
         children: [
           SlidableAction(
-            onPressed: (BuildContext context) {},
+            onPressed: (BuildContext context) => homeController.deletePost(post),
             flex: 3,
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,

@@ -71,7 +71,7 @@ class NetworkService {
     return null;
   }
 
-  static Future<Map<String, dynamic>?> POST(String api, Map<String, dynamic> body) async {
+  static Future POST(String api, Map<String, dynamic> body) async {
     Response response = await _dio.post(api, data: jsonEncode(body) );
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.data;
