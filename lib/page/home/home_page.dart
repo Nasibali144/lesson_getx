@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
         title: const Text("GetX Post"),
         centerTitle: true,
       ),
-      body: GetBuilder<HomeController>(
+      body: GetX<HomeController>(
         init: HomeController(),
         builder: (controller) {
           return Stack(
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
               ),
 
               Visibility(
-                visible: controller.isLoading,
+                visible: controller.isLoading.value,
                 child: const Center(
                   child: CupertinoActivityIndicator(),
                 ),
