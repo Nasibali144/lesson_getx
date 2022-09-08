@@ -6,6 +6,7 @@ import 'package:lesson_getx/view/post_view.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
+  static const id = "/home_page";
   const HomePage({Key? key}) : super(key: key);
 
   @override

@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
 import 'package:lesson_getx/model/post_model.dart';
+import 'package:lesson_getx/page/detail/detail_binding.dart';
 import 'package:lesson_getx/page/detail/detail_controller.dart';
 import 'package:lesson_getx/page/detail/detail_page.dart';
 import 'package:lesson_getx/service/network_service.dart';
@@ -30,12 +28,12 @@ class HomeController extends GetxController {
   }
 
   void createPost() {
-    Get.to(() => const DetailPage());
+    Get.to(() => const DetailPage(), binding: DetailBinding());
   }
 
   void editPost(Post post) {
-    Get.find<DetailController>().init(post);
-    Get.to(() => const DetailPage());
+    Get.put<DetailController>(DetailController()).init(post);
+    Get.to(() => const DetailPage(), binding: DetailBinding());
   }
 
   void deletePost(Post post) async {

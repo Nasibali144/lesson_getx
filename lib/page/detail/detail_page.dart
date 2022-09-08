@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lesson_getx/page/detail/detail_controller.dart';
 
 class DetailPage extends StatelessWidget {
+  static const id = "/detail_page";
   const DetailPage({Key? key}) : super(key: key);
 
   @override
